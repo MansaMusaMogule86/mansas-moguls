@@ -99,9 +99,14 @@ export function HeroEmpire() {
             className="relative w-40 h-40 md:w-56 md:h-56 mb-8 md:mb-12 flex items-center justify-center transform-gpu mx-auto"
           >
             {/* Orbit lines */}
-            <motion.div variants={orbit} animate="animate" className="absolute inset-0 rounded-full border border-gold/20 border-t-gold/60" />
-            <motion.div variants={orbit} animate="animate" transition={{ duration: 40, repeat: Infinity, ease: "linear" as const, repeatType: "reverse" as const }} className="absolute -inset-2 rounded-full border border-royal/30 border-b-royal/80" />
-            <motion.div variants={orbit} animate="animate" transition={{ duration: 25, repeat: Infinity, ease: "linear" as const }} className="absolute -inset-4 rounded-full border border-white/5 border-l-white/20" />
+            <div className="absolute inset-0 rounded-full border border-gold/20" />
+            <motion.div variants={orbit} animate="animate" className="absolute inset-0 rounded-full border border-transparent border-t-gold/70" />
+            
+            <div className="absolute -inset-3 rounded-full border border-royal/10" />
+            <motion.div variants={orbit} animate="animate" transition={{ duration: 40, repeat: Infinity, ease: "linear" as const, repeatType: "reverse" as const }} className="absolute -inset-3 rounded-full border border-transparent border-b-royal/80" />
+            
+            <div className="absolute -inset-6 rounded-full border border-white/5" />
+            <motion.div variants={orbit} animate="animate" transition={{ duration: 25, repeat: Infinity, ease: "linear" as const }} className="absolute -inset-6 rounded-full border border-transparent border-l-white/30" />
             
             <div className="absolute inset-0 flex items-center justify-center z-10 w-full h-full">
               <img 
