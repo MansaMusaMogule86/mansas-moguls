@@ -188,7 +188,7 @@
       0 24px 60px -30px rgba(0, 0, 0, 0.8);
   }
 
-  /* HUD Panel border with gold accents */
+/* Shared panel classes */
   .hud-panel {
     background: linear-gradient(
       180deg,
@@ -197,6 +197,8 @@
     );
     border: 1px solid rgba(212, 175, 55, 0.15);
     position: relative;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
   
   .hud-panel::before,

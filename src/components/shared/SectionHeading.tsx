@@ -27,13 +27,16 @@ export function SectionHeading({
     >
       <div className="max-w-2xl">
         {eyebrow && (
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">
-            {eyebrow}
-          </p>
+          <div className="flex items-center gap-3">
+            <span className="h-px w-6 bg-gold/40" />
+            <p className="text-[10px] font-mono font-semibold uppercase tracking-[0.24em] text-gold/80">
+              {eyebrow}
+            </p>
+          </div>
         )}
-        <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">{title}</h2>
+        <h2 className="mt-5 text-4xl font-heading tracking-tight sm:text-5xl text-foreground drop-shadow-md">{title}</h2>
         {description && (
-          <p className="mt-3 max-w-xl text-muted-foreground">{description}</p>
+          <p className="mt-4 max-w-xl text-lg text-muted-foreground/90 font-sans leading-relaxed">{description}</p>
         )}
       </div>
       {link && (
