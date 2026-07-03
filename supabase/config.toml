@@ -1,0 +1,16 @@
+# Local Supabase project scaffold for Mansas Moguls.
+# This file sets up the project structure only; it does not connect to a remote project.
+
+project_id = "mansas-moguls"
+
+[api]
+enabled = true
+schemas = ["public"]
+extra_search_path = ["public"]
+max_rows = 1000
+
+[db]
+major_version = 15
+
+[studio]
+enabled = true
