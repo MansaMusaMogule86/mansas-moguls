@@ -188,6 +188,40 @@
       0 24px 60px -30px rgba(0, 0, 0, 0.8);
   }
 
+  /* HUD Panel border with gold accents */
+  .hud-panel {
+    background: linear-gradient(
+      180deg,
+      rgba(4, 5, 10, 0.8),
+      rgba(7, 10, 19, 0.9)
+    );
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    position: relative;
+  }
+  
+  .hud-panel::before,
+  .hud-panel::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.6);
+  }
+
+  .hud-panel::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .hud-panel::after {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+  }
+
   /* Gold gradient text for headlines */
   .text-gradient-gold {
     background: linear-gradient(120deg, #f4dd9e 0%, #d4af37 45%, #a8842a 100%);
