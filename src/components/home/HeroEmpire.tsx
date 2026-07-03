@@ -32,7 +32,7 @@ const orbit = {
 
 export function HeroEmpire() {
   return (
-    <section className="relative overflow-hidden min-h-[90vh] flex items-center justify-center pt-24 pb-20">
+    <section className="relative overflow-hidden min-h-[100svh] flex items-center justify-center pt-28 pb-20">
       {/* Background & Lighting Details */}
       <div className="absolute inset-0 bg-empire-black" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
@@ -96,7 +96,7 @@ export function HeroEmpire() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative w-48 h-48 sm:w-64 sm:h-64 mb-10 flex items-center justify-center transform-gpu"
+            className="relative w-40 h-40 md:w-56 md:h-56 mb-8 md:mb-12 flex items-center justify-center transform-gpu mx-auto"
           >
             {/* Orbit lines */}
             <motion.div variants={orbit} animate="animate" className="absolute inset-0 rounded-full border border-gold/20 border-t-gold/60" />
