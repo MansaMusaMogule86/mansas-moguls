@@ -103,8 +103,12 @@ export function HeroEmpire() {
             <motion.div variants={orbit} animate="animate" transition={{ duration: 40, repeat: Infinity, ease: "linear" as const, repeatType: "reverse" as const }} className="absolute inset-4 rounded-full border border-royal/30 border-b-royal/80" />
             <motion.div variants={orbit} animate="animate" transition={{ duration: 25, repeat: Infinity, ease: "linear" as const }} className="absolute inset-8 rounded-full border border-white/5 border-l-white/20" />
             
-            <div className="absolute inset-12 bg-gradient-to-br from-empire-surface to-empire-black rounded-full border border-gold/30 shadow-[0_0_40px_rgba(212,175,55,0.15)_inset] flex items-center justify-center z-10 backdrop-blur-xl">
-              <span className="text-5xl font-heading text-gradient-gold drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">MM</span>
+            <div className="absolute inset-4 flex items-center justify-center z-10 w-full h-full">
+              <img 
+                 src="/mansas-moguls-crown.png" 
+                 alt="Mansas Moguls Echo" 
+                 className="w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(212,175,55,0.8)] scale-125"
+               />
             </div>
             
             {/* Base platform line */}
