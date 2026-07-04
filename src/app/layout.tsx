@@ -12,7 +12,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Cinematic serif for empire headlines / wordmark.
 const playfair = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin"],
@@ -22,25 +21,39 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mansasmoguls.com"),
   title: {
-    default: "Mansas Moguls — The Empire Operating System",
-    template: "%s — Mansas Moguls",
+    default: "Mansas Moguls | AI Business Operating System",
+    template: "%s | Mansas Moguls",
   },
   description:
-    "Mansas Moguls is an AI-powered holding empire that builds, acquires, automates, scales, and compounds intelligent businesses.",
+    "Mansas Moguls is an AI business operating system and venture studio for entrepreneurs, startups, brands, and companies to build, automate, launch, scale, and compound digital businesses.",
   keywords: [
     "Mansas Moguls",
-    "AI holding company",
-    "venture studio",
-    "AI empire",
-    "portfolio companies",
+    "Mansa Moguls",
+    "Mansas Mogules",
+    "AI business operating system",
+    "AI venture studio",
+    "AI automation platform",
+    "business automation",
+    "startup operating system",
+    "digital business platform",
     "AI agents",
+    "SaaS builder",
+    "company builder",
+    "growth systems",
   ],
   openGraph: {
-    title: "Mansas Moguls — The Empire Operating System",
+    title: "Mansas Moguls | AI Business Operating System",
     description:
-      "An AI-powered holding empire that builds, acquires, automates, scales, and compounds intelligent businesses.",
+      "Build, automate, launch, scale, and compound digital businesses with the Mansas Moguls AI business operating system.",
     siteName: "Mansas Moguls",
     type: "website",
+    url: "https://mansasmoguls.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mansas Moguls | AI Business Operating System",
+    description:
+      "Build, automate, launch, scale, and compound digital businesses with Mansas Moguls.",
   },
 };
 
