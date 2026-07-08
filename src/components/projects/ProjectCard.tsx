@@ -14,37 +14,61 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group hud-panel flex min-h-[280px] flex-col rounded-3xl p-6 transition-all duration-500 hover:-translate-y-1 sm:p-7"
+      className={cn(
+        "group hud-panel relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-3xl p-6 transition-all duration-500 hover:-translate-y-1 sm:p-7",
+        isGold
+          ? "hover:border-gold/30 hover:shadow-[0_16px_48px_rgba(212,175,55,0.08)]"
+          : "hover:border-royal/30 hover:shadow-[0_16px_48px_rgba(43,84,240,0.08)]",
+      )}
     >
+      {/* Top accent line */}
+      <span
+        className={cn(
+          "absolute inset-x-0 top-0 h-px transition-opacity duration-500 opacity-0 group-hover:opacity-100",
+          isGold
+            ? "bg-gradient-to-r from-transparent via-gold/50 to-transparent"
+            : "bg-gradient-to-r from-transparent via-royal/60 to-transparent",
+        )}
+      />
+
       <div className="flex items-start justify-between gap-4">
-        <div className="flex flex-wrap items-center gap-3 text-[10px] uppercase font-mono tracking-widest text-muted-foreground">
-          <span className={cn(isGold ? "text-gold" : "text-royal-bright")}>
-            [{projectTypeLabel[project.type]}]
+        {/* Type + status badges */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className={cn(
+              "rounded-full border px-2.5 py-0.5 text-[10px] font-mono font-medium uppercase tracking-wider",
+              isGold
+                ? "border-gold/20 bg-gold/5 text-gold"
+                : "border-royal/25 bg-royal/5 text-royal-bright",
+            )}
+          >
+            {projectTypeLabel[project.type]}
           </span>
-          <span className="text-white/40">/</span>
-          <span>{projectStatusLabel[project.status]}</span>
+          <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+            {projectStatusLabel[project.status]}
+          </span>
           {isAnonymous && (
-             <>
-                <span className="text-white/40">/</span>
-                <span className="opacity-60">Anonymous</span>
-             </>
+            <span className="rounded-full border border-white/8 bg-white/3 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground/50">
+              Anonymous
+            </span>
           )}
         </div>
-        <ArrowUpRight className="size-5 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gold" />
+        <ArrowUpRight className={cn(
+          "size-4 shrink-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+          isGold ? "text-muted-foreground group-hover:text-gold" : "text-muted-foreground group-hover:text-royal-bright"
+        )} />
       </div>
 
-      <h3 className="mt-5 text-xl font-heading tracking-tight sm:text-2xl drop-shadow-md text-foreground">{project.name}</h3>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground/80">
+      <h3 className="mt-5 text-xl font-heading tracking-tight sm:text-2xl text-foreground">{project.name}</h3>
+      <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted-foreground/80">
         {project.shortDescription}
       </p>
 
-      <div className="mt-6 space-y-3 pt-5 relative">
-        <div className="absolute top-0 left-0 w-12 h-px bg-gold/20" />
+      <div className="mt-6 space-y-2.5 pt-4 relative">
+        <div className={cn("absolute top-0 left-0 w-10 h-px", isGold ? "bg-gold/20" : "bg-royal/20")} />
         <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
           <span>{mogul?.name ?? project.industry}</span>
-          <span className="font-medium text-foreground">
-            {project.progressPercent}%
-          </span>
+          <span className="font-semibold text-foreground">{project.progressPercent}%</span>
         </div>
         <Progress
           value={project.progressPercent}

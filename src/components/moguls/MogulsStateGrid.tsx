@@ -13,6 +13,7 @@ interface MogulData {
   fullDetail: string;
   typeScale: 'xl' | 'lg' | 'md' | 'sm' | 'xs';
   slug: string;
+  metrics?: { label: string; value: string }[];
 }
 
 const MOGULS_DATA: MogulData[] = [
@@ -27,6 +28,10 @@ const MOGULS_DATA: MogulData[] = [
       'Autonomous market research systems, competitive analysis engines, and strategic decision frameworks that power acquisition and positioning.',
     typeScale: 'xl',
     slug: 'intelligence',
+    metrics: [
+      { label: 'Market Models', value: '128+' },
+      { label: 'Accuracy Rate', value: '94.7%' },
+    ],
   },
   {
     id: 'ai',
@@ -39,6 +44,10 @@ const MOGULS_DATA: MogulData[] = [
       'LLM-powered workflows, n8n orchestration, multi-channel automation, and AI systems that compound operational efficiency across the empire.',
     typeScale: 'lg',
     slug: 'ai',
+    metrics: [
+      { label: 'Agents Deployed', value: '1,248' },
+      { label: 'Automation Links', value: '342' },
+    ],
   },
   {
     id: 'capital',
@@ -51,6 +60,10 @@ const MOGULS_DATA: MogulData[] = [
       'Strategic capital deployment, portfolio management, M&A execution, and wealth compounding mechanisms that build empire valuation.',
     typeScale: 'lg',
     slug: 'capital',
+    metrics: [
+      { label: 'Total AUM', value: '$1.2B' },
+      { label: 'Portfolio Cos', value: '18' },
+    ],
   },
   {
     id: 'growth',
@@ -63,6 +76,10 @@ const MOGULS_DATA: MogulData[] = [
       'Sales infrastructure, go-to-market execution, performance metrics, and revenue growth engines that scale from 0 to million ARR.',
     typeScale: 'md',
     slug: 'growth',
+    metrics: [
+      { label: 'Total ARR', value: '$24.6M' },
+      { label: 'Growth Rate', value: '+156%' },
+    ],
   },
   {
     id: 'studio',
@@ -75,6 +92,10 @@ const MOGULS_DATA: MogulData[] = [
       'High-end video production, brand storytelling, cinematic assets, and content that positions the empire as category authority.',
     typeScale: 'md',
     slug: 'studio',
+    metrics: [
+      { label: 'Content Created', value: '1.2B' },
+      { label: 'Engagement Rate', value: '12.6%' },
+    ],
   },
   {
     id: 'venture',
@@ -87,6 +108,10 @@ const MOGULS_DATA: MogulData[] = [
       'Product development, platform launches, go-to-market strategy, and venture execution that builds standalone businesses within the empire.',
     typeScale: 'sm',
     slug: 'venture',
+    metrics: [
+      { label: 'Ventures Launched', value: '24' },
+      { label: 'Active Ventures', value: '12' },
+    ],
   },
   {
     id: 'innovation',
@@ -99,6 +124,10 @@ const MOGULS_DATA: MogulData[] = [
       'Experimental systems, emerging tech integration, future-facing infrastructure, and innovation that positions the empire ahead of market.',
     typeScale: 'sm',
     slug: 'innovation',
+    metrics: [
+      { label: 'Active Projects', value: '37' },
+      { label: 'Beta Trials', value: '14' },
+    ],
   },
   {
     id: 'knowledge',
@@ -111,6 +140,10 @@ const MOGULS_DATA: MogulData[] = [
       'Documentation, process frameworks, IP libraries, and the foundational knowledge systems that compound every decision across empire.',
     typeScale: 'xs',
     slug: 'knowledge',
+    metrics: [
+      { label: 'Playbooks', value: '128' },
+      { label: 'Impact Score', value: '9.8/10' },
+    ],
   },
 ];
 

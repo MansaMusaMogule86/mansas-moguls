@@ -1,0 +1,17 @@
+# Mansas Moguls LLC-FZ
+User-agent: Googlebot
+Allow: /
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /join/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /dashboard/
+
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+
+Sitemap: https://mansasmoguls.com/sitemap.xml
+Host: https://mansasmoguls.com

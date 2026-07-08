@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Check } from "lucide-react";
+import SEO from "@/components/shared/SEO";
+import { generateBreadcrumbs } from "@/lib/seo-schema";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Section } from "@/components/shared/Section";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -41,8 +43,25 @@ export default async function MogulDetailPage({
     (p) => p.visibility === "public" || p.visibility === "anonymous",
   );
 
+  const mogulSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `https://mansasmoguls.com/moguls/${mogul.slug}#mogul`,
+    "name": mogul.name,
+    "description": mogul.shortDescription,
+    "parentOrganization": { "@id": "https://mansasmoguls.com/#organization" },
+    "founder": { "@id": "https://mansasmoguls.com/#el-mehdi" },
+    "url": `https://mansasmoguls.com/moguls/${mogul.slug}`,
+  };
+
   return (
     <>
+      <SEO
+        title={mogul.name}
+        description={mogul.shortDescription}
+        path={`/moguls/${mogul.slug}`}
+        jsonLd={[mogulSchema, generateBreadcrumbs(`/moguls/${mogul.slug}`)]}
+      />
       <PageHeader
         eyebrow={mogul.category}
         title={mogul.name}

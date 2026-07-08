@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import SEO from "@/components/shared/SEO";
+import { generateBreadcrumbs } from "@/lib/seo-schema";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { Section } from "@/components/shared/Section";
 import { CTASection } from "@/components/shared/CTASection";
@@ -22,6 +24,12 @@ export default function PortfolioPage() {
 
   return (
     <>
+      <SEO
+        title="Portfolio | 24 AI-Driven Companies | Mansas Moguls"
+        description="Companies the empire owns, invests in, acquires, and incubates — compounded over time."
+        path="/portfolio"
+        jsonLd={generateBreadcrumbs("/portfolio")}
+      />
       <PageHeader
         eyebrow="Ownership"
         title="The Portfolio"

@@ -5,17 +5,26 @@ import { activity } from "@/lib/data/dashboard";
  */
 export function ActivityFeed() {
   return (
-    <ul className="space-y-3">
-      {activity.map((item) => (
-        <li key={item.id} className="flex gap-3 rounded-2xl border border-white/5 bg-white/[0.02] px-3 py-3">
-          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_0_4px_rgba(255,196,61,0.08)]" />
-          <div className="min-w-0 text-sm">
-            <p className="text-pretty text-foreground/90">
+    <ul className="relative flex flex-col gap-0">
+      {/* Vertical connector line */}
+      <span className="absolute left-[5px] top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-gold/30 via-white/10 to-transparent" />
+
+      {activity.map((item, i) => (
+        <li key={item.id} className="relative flex gap-4 pb-5 last:pb-0">
+          {/* Dot */}
+          <span className="relative z-10 mt-1 flex size-3 shrink-0 items-center justify-center">
+            <span className="size-2 rounded-full bg-gold/70 shadow-[0_0_0_3px_rgba(212,175,55,0.12)]" />
+          </span>
+
+          <div className="min-w-0 flex-1">
+            <p className="text-sm leading-snug text-foreground/90">
               <span className="font-medium text-foreground">{item.actor}</span>{" "}
               {item.action}{" "}
               <span className="text-muted-foreground">{item.target}</span>
             </p>
-            <p className="mt-0.5 text-xs uppercase tracking-[0.14em] text-muted-foreground">{item.time}</p>
+            <p className="mt-1 text-[11px] font-mono uppercase tracking-[0.14em] text-muted-foreground/60">
+              {item.time}
+            </p>
           </div>
         </li>
       ))}

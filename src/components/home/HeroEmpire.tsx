@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Globe, Layers, Cpu, Code2, Users, Building, ShieldCheck, Activity } from "lucide-react";
+import { Globe, Layers, Cpu, Code2, Users, Building, ShieldCheck, Activity, ChevronsDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const fadeUp = {
@@ -210,6 +210,22 @@ export function HeroEmpire() {
         </motion.div>
 
       </div>
+
+      {/* Scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8, duration: 0.8 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden lg:flex flex-col items-center gap-1"
+      >
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronsDown className="size-5 text-gold/30" />
+        </motion.div>
+        <span className="text-[9px] font-mono uppercase tracking-[0.22em] text-gold/20">Scroll</span>
+      </motion.div>
     </section>
   );
 }

@@ -11,22 +11,28 @@ export function RevenuePipeline() {
   const max = Math.max(...revenuePipeline.map((s) => s.value));
 
   return (
-    <div className="space-y-4">
-      {revenuePipeline.map((stage) => (
-        <div key={stage.stage} className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3">
-          <div className="flex items-center justify-between gap-3 text-sm">
-            <span className="font-medium text-foreground">{stage.stage}</span>
-            <span className="text-right text-muted-foreground">
-              {formatMoney(stage.value)}
-              <span className="ml-2 text-xs uppercase tracking-[0.14em]">· {stage.deals} deals</span>
-            </span>
+    <div className="flex flex-col gap-5">
+      {revenuePipeline.map((stage, i) => (
+        <div key={stage.stage}>
+          <div className="flex items-center justify-between gap-3 mb-2">
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono text-muted-foreground/50">{String(i + 1).padStart(2, "0")}</span>
+              <span className="text-sm font-medium text-foreground">{stage.stage}</span>
+            </div>
+            <div className="text-right text-xs text-muted-foreground font-mono">
+              <span className="text-foreground font-semibold">{formatMoney(stage.value)}</span>
+              <span className="ml-2 opacity-50">· {stage.deals} deals</span>
+            </div>
           </div>
-          <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/5">
+          <div className="h-1.5 overflow-hidden rounded-full bg-white/5">
             <div
               className="h-full rounded-full bg-gradient-to-r from-gold-deep via-gold to-gold-bright"
               style={{ width: `${(stage.value / max) * 100}%` }}
             />
           </div>
+          {i < revenuePipeline.length - 1 && (
+            <div className="mt-5 h-px bg-white/5" />
+          )}
         </div>
       ))}
     </div>
