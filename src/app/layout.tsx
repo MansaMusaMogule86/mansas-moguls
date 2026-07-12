@@ -7,8 +7,7 @@ import "./globals.css";
 import { globalGraph } from "@/lib/seo-schema";
 import Script from "next/script";
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { AppChrome } from "@/components/layout/AppChrome";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -53,11 +52,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Navbar />
-        <main className="min-h-screen pt-20">
-          {children}
-        </main>
-        <Footer />
+        <AppChrome>{children}</AppChrome>
       </body>
     </html>
   );
