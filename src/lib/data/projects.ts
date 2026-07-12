@@ -2,6 +2,10 @@
  * Static Projects data (no database yet).
  *
  * VISIBILITY RULE: only `public` and `anonymous` projects live here. Nothing
+/**
+ * Static Projects data (no database yet).
+ *
+ * VISIBILITY RULE: only `public` and `anonymous` projects live here. Nothing
  * private or stealth-identifying is exposed. Anonymous entries use a masked
  * label instead of a real client name.
  */
@@ -23,6 +27,7 @@ export const projects: Project[] = [
     fullDescription:
       "Empire OS is the command center that unifies the empire — orchestrating autonomous agents, tracking every project and milestone, and giving the founder a single real-time view of capital, growth, and output across all Moguls.",
     industry: "AI Infrastructure",
+    image: "",
     isClientNamePublic: false,
     startedAt: "2025-11-01",
     targetLaunchDate: "2026-09-01",
@@ -41,6 +46,7 @@ export const projects: Project[] = [
     fullDescription:
       "Aurora is the empire's intelligence platform — autonomous research agents that monitor markets, competitors, and signals in real time, then deliver executive-ready briefings that direct where the empire moves next.",
     industry: "Market Intelligence",
+    image: "",
     isClientNamePublic: false,
     startedAt: "2025-09-15",
     targetLaunchDate: "2026-07-15",
@@ -59,6 +65,7 @@ export const projects: Project[] = [
     fullDescription:
       "Studio Signal is the empire's content engine — a production system that turns briefs into cinematic brand films and campaigns, giving every venture a premium creative presence at scale.",
     industry: "Media & Creative",
+    image: "",
     isClientNamePublic: false,
     startedAt: "2025-06-01",
     targetLaunchDate: "2026-01-10",
@@ -77,6 +84,7 @@ export const projects: Project[] = [
     fullDescription:
       "Novodent is a partner engagement where the empire deployed a complete AI-driven patient acquisition and retention system, fundamentally shifting the acquisition economics of the clinic network.",
     industry: "Healthcare",
+    image: "",
     clientName: "Novodent",
     isClientNamePublic: true,
     startedAt: "2025-01-10",

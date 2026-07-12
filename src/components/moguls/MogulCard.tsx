@@ -12,19 +12,19 @@ export function MogulCard({ mogul }: { mogul: Mogul }) {
     <Link
       href={`/moguls/${mogul.slug}`}
       className={cn(
-        "group hud-panel relative flex h-full min-h-[230px] flex-col overflow-hidden rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-1",
+        "group hud-panel relative flex h-full min-h-[230px] flex-col overflow-hidden rounded-3xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.02] backdrop-blur-xl",
         isGold
-          ? "hover:border-gold/30 hover:shadow-[0_16px_48px_rgba(212,175,55,0.08)]"
-          : "hover:border-royal/30 hover:shadow-[0_16px_48px_rgba(43,84,240,0.08)]",
+          ? "hover:border-gold/40 hover:shadow-[0_24px_56px_rgba(212,175,55,0.12)]"
+          : "hover:border-royal/40 hover:shadow-[0_24px_56px_rgba(43,84,240,0.12)]",
       )}
     >
       {/* Top accent line */}
       <span
         className={cn(
-          "absolute inset-x-0 top-0 h-px transition-opacity duration-500",
+          "absolute inset-x-0 top-0 h-[2px] transition-all duration-700 w-[200%] -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0",
           isGold
-            ? "bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100"
-            : "bg-gradient-to-r from-transparent via-royal/60 to-transparent opacity-0 group-hover:opacity-100",
+            ? "bg-gradient-to-r from-transparent via-gold to-transparent shadow-[0_0_12px_rgba(212,175,55,0.8)]"
+            : "bg-gradient-to-r from-transparent via-royal-bright to-transparent shadow-[0_0_12px_rgba(43,84,240,0.8)]",
         )}
       />
 
@@ -39,8 +39,8 @@ export function MogulCard({ mogul }: { mogul: Mogul }) {
         {Icon && <Icon className="size-5" strokeWidth={1.5} />}
       </div>
 
-      <h3 className="mt-5 text-xl font-heading tracking-tight sm:text-2xl">{mogul.name}</h3>
-      <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted-foreground/80 font-sans">
+      <h3 className="mt-5 text-xl font-heading tracking-tight sm:text-2xl text-white drop-shadow-sm">{mogul.name}</h3>
+      <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted-foreground/60 font-sans group-hover:text-muted-foreground/80 transition-colors">
         {mogul.shortDescription}
       </p>
 

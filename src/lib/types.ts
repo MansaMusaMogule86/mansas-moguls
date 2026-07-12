@@ -68,8 +68,8 @@ export interface Mogul {
   shortDescription: string;
   fullDescription: string;
   category: string;
-  /** Icon registry key resolved in `src/lib/data/moguls.ts`. */
   icon: string;
+  image?: string;
   heroImage?: string;
   accentColor: Accent;
   orderIndex: number;
@@ -91,6 +91,7 @@ export interface Project {
   shortDescription: string;
   fullDescription: string;
   industry: string;
+  image?: string;
   heroImage?: string;
   coverImage?: string;
   clientName?: string;

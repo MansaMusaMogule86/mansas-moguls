@@ -1,6 +1,5 @@
-import * as React from "react"
+import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
-import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
@@ -45,20 +44,17 @@ function Button({
   className,
   variant = "default",
   size = "default",
-  asChild = false,
+  nativeButton,
   ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
-  }) {
-  const Comp = asChild ? Slot.Root : "button"
-
+}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
-    <Comp
+    <ButtonPrimitive
       data-slot="button"
-      data-variant={variant}
-      data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
+      // When rendered as another element (e.g. a Link), it's no longer a
+      // native <button>, so Base UI needs nativeButton=false. Callers can
+      // still override explicitly.
+      nativeButton={nativeButton ?? !props.render}
       {...props}
     />
   )

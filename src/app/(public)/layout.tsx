@@ -1,20 +1,13 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+// src/app/(public)/layout.tsx
+// Layout for all public pages
 
-/**
- * Public app shell — wraps every marketing route with the empire
- * navbar and footer. Dashboard routes get their own shell later.
- */
-export default function PublicLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import { ReactNode } from "react";
+
+export default function PublicLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative flex min-h-full flex-col">
-      <Navbar />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
+    <>
+      {/* BreadcrumbList will be added per-page */}
+      {children}
+    </>
   );
 }

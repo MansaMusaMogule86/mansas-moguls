@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/PageHeader";
-import { Section } from "@/components/shared/Section";
 import { CTASection } from "@/components/shared/CTASection";
-import { MogulsStateGrid } from "@/components/moguls/MogulsStateGrid";
+import { MogulNavigationSystem } from "@/components/moguls/navigation/MogulNavigationSystem";
 
 export const metadata: Metadata = {
   title: "Moguls",
@@ -18,9 +17,7 @@ export default function MogulsPage() {
         title="Eight Moguls, one empire"
         description="Each Mogul is a permanent strategic division that builds, operates, and compounds a part of the empire."
       />
-      <Section>
-        <MogulsStateGrid />
-      </Section>
+      <MogulNavigationSystem />
       <CTASection />
     </>
   );

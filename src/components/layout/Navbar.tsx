@@ -28,8 +28,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close sheet on route change
-  useEffect(() => { setOpen(false); }, [pathname]);
+  // Menu closes on link click natively via Link components
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -92,11 +91,11 @@ export function Navbar() {
           {/* Desktop CTA + mobile trigger */}
           <div className="flex shrink-0 items-center gap-2">
             <Button
-              asChild
+              render={<Link href={primaryCta.href} />}
               size="sm"
               className="hidden whitespace-nowrap bg-gold px-4 text-primary-foreground shadow-[0_8px_24px_rgba(212,175,55,0.2)] hover:bg-gold-bright sm:inline-flex"
             >
-              <Link href={primaryCta.href}>{primaryCta.label}</Link>
+              {primaryCta.label}
             </Button>
 
             <button
@@ -207,12 +206,10 @@ export function Navbar() {
                 className="pt-4 border-t border-white/8"
               >
                 <Button
-                  asChild
+                  render={<Link href={primaryCta.href} onClick={() => setOpen(false)} />}
                   className="w-full bg-gold text-primary-foreground shadow-[0_8px_24px_rgba(212,175,55,0.2)] hover:bg-gold-bright"
                 >
-                  <Link href={primaryCta.href} onClick={() => setOpen(false)}>
-                    {primaryCta.label}
-                  </Link>
+                  {primaryCta.label}
                 </Button>
               </motion.div>
             </motion.div>

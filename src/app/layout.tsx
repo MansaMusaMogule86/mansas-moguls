@@ -1,74 +1,64 @@
+// src/app/layout.tsx
+// Add global schema to root layout
+
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Inter, Geist, Cinzel } from "next/font/google";
 import "./globals.css";
+import { globalGraph } from "@/lib/seo-schema";
+import Script from "next/script";
+import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
-const geistSans = Geist({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
-const geistMono = Geist_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-});
+const cinzel = Cinzel({ subsets: ["latin"], variable: "--font-display", weight: ["400", "600", "700", "800"] });
 
-const playfair = Playfair_Display({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mansasmoguls.com"),
   title: {
-    default: "Mansas Moguls | AI Business Operating System",
+    default: "Mansas Moguls | Founder-First AI Strategy & Automation Studio",
     template: "%s | Mansas Moguls",
   },
-  description:
-    "Mansas Moguls is an AI business operating system and venture studio for entrepreneurs, startups, brands, and companies to build, automate, launch, scale, and compound digital businesses.",
-  keywords: [
-    "Mansas Moguls",
-    "Mansa Moguls",
-    "Mansas Mogules",
-    "AI business operating system",
-    "AI venture studio",
-    "AI automation platform",
-    "business automation",
-    "startup operating system",
-    "digital business platform",
-    "AI agents",
-    "SaaS builder",
-    "company builder",
-    "growth systems",
-  ],
+  description: "Build, acquire, automate, and scale AI-driven businesses. 24 portfolio companies. $1.2B+ valuation. Dubai-based, globally operating.",
+  metadataBase: new URL("https://mansasmoguls.com"),
   openGraph: {
-    title: "Mansas Moguls | AI Business Operating System",
-    description:
-      "Build, automate, launch, scale, and compound digital businesses with the Mansas Moguls AI business operating system.",
-    siteName: "Mansas Moguls",
     type: "website",
-    url: "https://mansasmoguls.com",
+    locale: "en_US",
+    siteName: "Mansas Moguls",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mansas Moguls | AI Business Operating System",
-    description:
-      "Build, automate, launch, scale, and compound digital businesses with Mansas Moguls.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={cn("font-sans dark", geist.variable, cinzel.variable)}>
+      <head>
+        {/* Global Organization Schema */}
+        <Script
+          id="global-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalGraph()) }}
+        />
+      </head>
+      <body className={inter.className}>
+        <Navbar />
+        <main className="min-h-screen pt-20">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }

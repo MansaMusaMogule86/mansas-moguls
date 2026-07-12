@@ -18,7 +18,7 @@ export function DashboardTopbar() {
   const pathname = usePathname();
   const unread = notifications.length;
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  // Route changes should generally close the menu natively, or we can handle via onClick
 
   return (
     <>

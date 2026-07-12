@@ -18,11 +18,11 @@ export default function NotFound() {
           This page is private, stealth, or does not exist.
         </p>
         <Button
-          asChild
+          render={<Link href="/" />}
           size="lg"
           className="mt-8 bg-gold text-primary-foreground hover:bg-gold-bright"
         >
-          <Link href="/">Return to the empire</Link>
+          Return to the empire
         </Button>
       </div>
     </div>
