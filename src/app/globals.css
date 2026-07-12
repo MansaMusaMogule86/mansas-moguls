@@ -75,6 +75,32 @@
 }
 
 /*
+  Intelligence Mogul module tokens (namespaced `editorial-*`).
+  Warm-white/black/orange analytical palette used exclusively inside
+  src/modules/intelligence-mogul — these add utilities (bg-editorial-bg,
+  text-editorial-text, …) without touching any empire token above.
+  Feature CSS lives in src/modules/intelligence-mogul/styles.
+*/
+@theme {
+  /* Smallest analytical breakpoint used by Intelligence Mogul dense controls */
+  --breakpoint-xs: 30rem;
+
+  /* Intelligence Mogul palette — warm-white / black / orange analytical system.
+     Scoped by usage (utilities) so it cannot affect The Throne or the public
+     site. Component CSS carries the canonical values under .intelligence-mogul-root. */
+  --color-editorial-bg: #f7f5ef;
+  --color-editorial-text: #171717;
+  --color-editorial-accent: #ff5a1f;
+  --color-editorial-muted: #8a877f;
+  --color-editorial-card: #fffdf8;
+  --color-editorial-border: #d7d2c8;
+  --color-editorial-dark: #171717;
+  --color-editorial-success: #159b68;
+  --color-editorial-warning: #c98716;
+  --color-editorial-danger: #d53b32;
+}
+
+/*
   The empire is dark-mode only. Values live on both :root and .dark so
   shadcn components render identically regardless of the class strategy.
 */

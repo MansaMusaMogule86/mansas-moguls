@@ -34,6 +34,7 @@ export const dashboardNav = [
   { label: "Projects", href: "/dashboard/projects", icon: "folder-kanban" },
   { label: "Tasks", href: "/dashboard/tasks", icon: "check-square" },
   { label: "AI Agents", href: "/dashboard/agents", icon: "bot" },
+  { label: "Intelligence Mogul", href: "/dashboard/moguls/intelligence-mogul", icon: "brain-circuit" },
   { label: "Milestones", href: "/dashboard/milestones", icon: "flag" },
   { label: "Files", href: "/dashboard/files", icon: "folder" },
   { label: "Messages", href: "/dashboard/messages", icon: "message-square" },

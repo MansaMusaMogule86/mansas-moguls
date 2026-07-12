@@ -1,0 +1,187 @@
+/*
+  Intelligence Mogul — feature-specific styles.
+
+  Everything here is scoped under `.intelligence-mogul-root` so nothing can
+  leak into The Throne or the public Mansas Moguls site, and global MANSAS
+  styles cannot override the module. Design tokens are declared as scoped CSS
+  variables on the root so component classes reference them explicitly.
+
+  The warm-white / black / orange analytical palette is the core identity of
+  the Intelligence Mogul workspace and is intentionally distinct from The
+  Throne (dark / gold / turquoise).
+*/
+
+.intelligence-mogul-root {
+  /* Canvas + surfaces */
+  --im-bg: #f7f5ef;
+  --im-surface: #fffdf8;
+  --im-surface-2: #f2efe7;
+  --im-border: #d7d2c8;
+  --im-border-strong: #bdb7ab;
+
+  /* Typography colors */
+  --im-text: #171717;
+  --im-text-2: #5c5a55;
+  --im-muted: #8a877f;
+
+  /* Signal colors */
+  --im-accent: #ff5a1f;
+  --im-accent-soft: #fff0e8;
+  --im-success: #159b68;
+  --im-warning: #c98716;
+  --im-danger: #d53b32;
+  --im-black: #171717;
+
+  color: var(--im-text);
+  background-color: var(--im-bg);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent the global `h1,h2,h3 { font-heading }` empire rule from hijacking
+   module headings — the OS uses its own technical/editorial type system. */
+.intelligence-mogul-root h1,
+.intelligence-mogul-root h2,
+.intelligence-mogul-root h3,
+.intelligence-mogul-root h4 {
+  font-family: inherit;
+  letter-spacing: normal;
+}
+
+.intelligence-mogul-root * {
+  border-color: var(--im-border);
+}
+
+@keyframes im-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes im-heartbeat-border {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    border-color: rgba(189, 183, 171, 0.7);
+  }
+}
+
+.intelligence-mogul-root .animate-fade-in {
+  animation: im-fade-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intelligence-mogul-root .support-button-idle {
+  animation: im-heartbeat-border 3s ease-in-out infinite;
+}
+
+.intelligence-mogul-root .editorial-border-accent {
+  border-color: var(--im-accent);
+}
+
+.intelligence-mogul-root .editorial-card {
+  background-color: var(--im-surface);
+  border: 1px solid var(--im-border);
+}
+
+/* Compact technical scrollbars */
+.intelligence-mogul-root .custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.intelligence-mogul-root .custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--im-surface-2);
+}
+
+.intelligence-mogul-root .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(23, 23, 23, 0.18);
+  border-radius: 6px;
+}
+
+.intelligence-mogul-root .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(23, 23, 23, 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intelligence-mogul-root .animate-fade-in,
+  .intelligence-mogul-root .support-button-idle {
+    animation: none !important;
+  }
+}
+
+/* ───────────── Premue first-entry intelligence scan ───────────── */
+@keyframes im-entry-sweep {
+  0% {
+    transform: translateY(-110%);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+}
+
+@keyframes im-entry-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.im-entry-scan {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--im-bg, #f7f5ef);
+  overflow: hidden;
+  pointer-events: none;
+  animation: im-entry-fade 0.2s ease 0.7s forwards;
+}
+
+.im-entry-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--im-accent, #ff5a1f) 20%,
+    #fff 50%,
+    var(--im-accent, #ff5a1f) 80%,
+    transparent
+  );
+  box-shadow: 0 0 18px 3px rgba(255, 90, 31, 0.55);
+  animation: im-entry-sweep 0.9s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+.im-entry-scan-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--im-text-2, #5c5a55);
+  opacity: 0.85;
+}
